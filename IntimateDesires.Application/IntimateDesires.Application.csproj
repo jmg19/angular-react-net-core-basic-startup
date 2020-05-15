@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="ResultModels\" />
+    <Folder Include="Services\Implementations\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\IntimateDesires.Business\IntimateDesires.Business.csproj" />
+    <ProjectReference Include="..\IntimateDesires.Infrastructure\IntimateDesires.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
