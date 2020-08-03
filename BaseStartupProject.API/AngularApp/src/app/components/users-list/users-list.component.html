@@ -1,0 +1,31 @@
+<div class="w3-container w3-margin-top">
+  <h2>Table as a Card</h2>
+  <p>The w3-card-* classes makes the table look like a card (adds shadows):</p>
+
+  <table class="w3-table-all w3-card-4">
+    <tr>
+      <th>
+        <span class="w3-cursor-pointer" (click)="OrderById()">ID</span>
+        <input style="margin-left: 5px;" type="number" (change)="FilterList()" [(ngModel)]="byIdField" />
+      </th>
+      <th>
+        <span class="w3-cursor-pointer" (click)="OrderByUserName()" >Username</span>
+        <input style="margin-left: 5px;" type="text" (change)="FilterList()" [(ngModel)]="byUsernameField" />
+      </th>
+      <th>
+          <input type="checkbox" id="user-active" (change)="byActiveField = !byActiveField; ActiveChange();" [checked]="byActiveField" />
+          &nbsp;
+          <label for="user-active" >active</label>
+          &nbsp;
+          <input type="checkbox" id="user-inactive" (change)="byInactiveField = !byInactiveField; InactiveChange();" [checked]="byInactiveField" />
+          &nbsp;
+          <label for="user-inactive" >inactive</label>
+      </th>
+    </tr>
+    <tr *ngFor="let user of users">
+      <td>{{user.id}}</td>
+      <td>{{user.username}}</td>
+      <td>{{user.active}}</td>
+    </tr>
+  </table>
+</div>

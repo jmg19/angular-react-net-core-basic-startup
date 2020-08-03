@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ResultModels\**" />
+    <EmbeddedResource Remove="ResultModels\**" />
+    <None Remove="ResultModels\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BaseStartupProject.Business\BaseStartupProject.Business.csproj" />
+    <ProjectReference Include="..\BaseStartupProject.Infrastructure\BaseStartupProject.Infrastructure.csproj" />
+    <ProjectReference Include="..\SessionTokenGenerator\SessionTokenGenerator.csproj" />
+  </ItemGroup>
+
+</Project>

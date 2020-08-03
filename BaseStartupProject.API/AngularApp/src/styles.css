@@ -1,0 +1,32 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+code {
+  color: #e01a76;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+a.w3-hyperlink{
+  cursor: pointer;
+  color: #0366d6;
+}
+
+a.w3-hyperlink:hover{
+  text-decoration: underline;
+}
+
+.w3-cursor-pointer{
+  cursor: pointer;
+}

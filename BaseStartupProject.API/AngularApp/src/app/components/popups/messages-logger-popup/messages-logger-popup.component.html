@@ -1,0 +1,33 @@
+<div class="w3-modal" >
+  <div class="w3-modal-content w3-card-4 w3-animate-zoom" >
+    <div class="w3-container w3-teal">
+      <span (click)="hide()" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal" >×</span>
+    </div>
+    <div style="margin-top: 25px; margin-bottom: 25px;">
+      <div class="w3-row w3-border w3-blod">
+        <div class="w3-row" style="font-weight: bold;">
+          <div class="w3-container w3-quarter">
+              Date
+          </div>
+          <div class="w3-container w3-rest">
+              Message
+          </div>
+        </div>
+      </div>
+      <div class="w3-row w3-border" *ngFor="let item of messages">
+        <div class="w3-row">
+          <div class="w3-container w3-quarter">
+              {{item.date | date:"yyyy-MM-dd HH:mm:ss"}}
+          </div>
+          <div class="w3-container w3-rest">
+            {{item.message}}
+          </div>
+        </div>
+        <div class="w3-row">
+          <app-details-log [details]="renderDetais(item.details)"></app-details-log>
+        </div>
+      </div>
+    </div>
+    <div class="w3-container w3-teal"></div>
+  </div>
+</div>

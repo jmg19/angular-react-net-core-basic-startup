@@ -1,0 +1,11 @@
+<body>
+  <div id="main">
+    <app-nav-menu></app-nav-menu>
+    <div class="w3-container w3-margin-top">
+      <router-outlet></router-outlet>
+    </div>
+    <app-login-popup *ngIf="popups.showPopupLogin" ></app-login-popup>
+    <app-sign-up-popup *ngIf="popups.showPopupSignUp" ></app-sign-up-popup>
+    <app-loading></app-loading>
+  </div>
+</body>

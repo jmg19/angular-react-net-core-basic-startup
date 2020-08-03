@@ -1,0 +1,11 @@
+.w3-modal{
+    display: inline-block;
+}
+
+div.form-validation-problems{
+  color: #FF0000;
+  min-height: 1.5em;
+  font-size: 1em;
+  font-style: italic;
+  padding-top: 2px;
+}

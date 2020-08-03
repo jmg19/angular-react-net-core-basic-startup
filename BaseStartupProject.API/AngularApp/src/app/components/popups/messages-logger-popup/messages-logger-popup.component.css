@@ -1,0 +1,17 @@
+.w3-modal{
+  display: inline-block;
+}
+
+.w3-modal > div{
+  max-width: 900px;
+  font-size: 0.8em;
+  max-height: 900px;
+  overflow-y: auto;
+
+}
+
+.log-boolean,
+.log-undefined {color: magenta;}
+.log-object,
+.log-string {color: orange;}
+.log-number {color: cyan;}

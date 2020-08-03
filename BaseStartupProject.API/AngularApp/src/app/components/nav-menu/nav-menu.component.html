@@ -1,0 +1,19 @@
+<div  class="w3-top">
+    <div id="menu-standard" class="w3-bar w3-black">
+        <button id="openNav" class="w3-button w3-teal w3-xlarge" (click)="w3_toggle()">&#9776;</button>
+        <a *ngIf="!isUserLoggedIn()" class="w3-bar-item w3-button w3-right" (click)="openSignUpPopup()" >Sign Up</a>
+        <a *ngIf="!isUserLoggedIn()" class="w3-bar-item w3-button w3-right" (click)="openLoginPopup()" >Login</a>
+        <a *ngIf="isUserLoggedIn()" class="w3-bar-item w3-button" (click)="LogOut()" >Log Out</a>
+        <a class="w3-bar-item w3-button w3-mobile w3-green w3-right" [routerLink]="['/']" >Home</a>
+        <a *ngIf="isUserLoggedIn()" class="w3-bar-item w3-button w3-mobile w3-right" [routerLink]="['/list-users']">List Users</a>
+    </div>
+</div>
+<div class="w3-sidebar w3-bar-block w3-card w3-animate-left" id="mySidebar">
+    <button class="w3-bar-item w3-button w3-large"
+    (click)="w3_close()">Close &times;</button>
+    <a *ngIf="!isUserLoggedIn()" class="w3-bar-item w3-button" (click)="openSignUpPopup()" >Sign Up</a>
+    <a *ngIf="!isUserLoggedIn()" class="w3-bar-item w3-button" (click)="openLoginPopup()" >Login</a>
+    <a *ngIf="isUserLoggedIn()" class="w3-bar-item w3-button" (click)="LogOut()" >Log Out</a>
+    <a class="w3-bar-item w3-button" [routerLink]="['/']" >Home</a>
+    <a *ngIf="isUserLoggedIn()" class="w3-bar-item w3-button" [routerLink]="['/list-users']">List Users</a>
+</div>
