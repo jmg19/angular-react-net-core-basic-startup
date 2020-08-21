@@ -7,6 +7,6 @@ namespace BaseStartupProject.Application.InfrastructureOperations.DataBaseOperat
 {
     public interface IDataBaseOperationsFactory
     {
-        UsersTableOperations CreateUsersTableOperations(IRepositoryFactory repositoryFactory);
+        ITableOperations CreateTableOperations(Type based_type, IRepositoryFactory repositoryFactory);        
     }
 }

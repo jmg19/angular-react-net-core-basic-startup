@@ -7,9 +7,9 @@ using BaseStartupProject.Infrastructure.Repositories.Utils;
 
 namespace BaseStartupProject.Application.InfrastructureOperations.DataBaseOperations
 {
-    public class UsersTableOperations : BaseTableOperations<User>
+    public class UserTableOperations : BaseTableOperations<User>
     {
-        public UsersTableOperations(IRepositoryFactory repositoryFactory) : base(repositoryFactory)
+        public UserTableOperations(IRepositoryFactory repositoryFactory) : base(repositoryFactory)
         {
         }
 
