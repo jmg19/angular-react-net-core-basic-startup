@@ -27,7 +27,7 @@ namespace BaseStartupProject.Application.Services.User
         {
             IReadOnlyRepository<DtoUser> readOnlyRepository = repositoryFactory.CreateReadOnlyUsersRepository();
             IEnumerable<DtoUser> users = readOnlyRepository.GetAll();
-            IMapper<DtoUser, UserAppModel> mapper = mapperFactory.Create<DtoUser, UserAppModel>();
+            AbstractMapper<DtoUser, UserAppModel> mapper = mapperFactory.Create<DtoUser, UserAppModel>();
 
             return mapper.Map(users);
         }
@@ -36,7 +36,7 @@ namespace BaseStartupProject.Application.Services.User
         {
             IReadOnlyRepository<DtoUser> readOnlyRepository = repositoryFactory.CreateReadOnlyUsersRepository();
             DtoUser user = readOnlyRepository.Get(id);
-            IMapper<DtoUser, UserAppModel> mapper = mapperFactory.Create<DtoUser, UserAppModel>();
+            AbstractMapper<DtoUser, UserAppModel> mapper = mapperFactory.Create<DtoUser, UserAppModel>();
 
             return mapper.Map(user);
         }
@@ -45,7 +45,7 @@ namespace BaseStartupProject.Application.Services.User
         {
             IReadOnlyRepository<DtoUser> readOnlyRepository = repositoryFactory.CreateReadOnlyUsersRepository();
             IEnumerable<DtoUser> users = readOnlyRepository.Get(query.search_rules, query.ordering_rules);
-            IMapper<DtoUser, UserAppModel> mapper = mapperFactory.Create<DtoUser, UserAppModel>();
+            AbstractMapper<DtoUser, UserAppModel> mapper = mapperFactory.Create<DtoUser, UserAppModel>();
 
             return mapper.Map(users);
         }
@@ -54,7 +54,7 @@ namespace BaseStartupProject.Application.Services.User
         {
             IReadOnlyRepository<DtoUser> readOnlyRepository = repositoryFactory.CreateReadOnlyUsersRepository();
             IEnumerable<DtoUser> users = readOnlyRepository.Get(search_rules, ordering_rules);
-            IMapper<DtoUser, UserAppModel> mapper = mapperFactory.Create<DtoUser, UserAppModel>();
+            AbstractMapper<DtoUser, UserAppModel> mapper = mapperFactory.Create<DtoUser, UserAppModel>();
 
             return mapper.Map(users);
         }

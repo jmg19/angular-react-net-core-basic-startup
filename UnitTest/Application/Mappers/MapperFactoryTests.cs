@@ -27,7 +27,7 @@ namespace BaseStartupProject.Tests.Application.Mappers
 
             #region === ASSERT ===
 
-            Assert.IsInstanceOfType(mapper, typeof(IMapper<DtoUser, UserAppModel>));
+            Assert.IsInstanceOfType(mapper, typeof(AbstractMapper<DtoUser, UserAppModel>));
 
             #endregion
         }

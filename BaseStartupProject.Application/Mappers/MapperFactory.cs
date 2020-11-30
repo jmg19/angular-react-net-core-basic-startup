@@ -8,15 +8,15 @@ namespace BaseStartupProject.Application.Mappers
 {
     public class MapperFactory : IMapperFactory
     {
-        public IMapper<I, O> Create<I, O>()
+        public AbstractMapper<I, O> Create<I, O>()
         {
-            string mapperClassName = string.Format("{0}.{1}To{2}Mapper", typeof(IMapper<I, O>).Namespace, typeof(I).Name, typeof(O).Name);
-            string assemblyName = typeof(IMapper<I, O>).Assembly.FullName;
+            string mapperClassName = string.Format("{0}.{1}To{2}Mapper", typeof(AbstractMapper<I, O>).Namespace, typeof(I).Name, typeof(O).Name);
+            string assemblyName = typeof(AbstractMapper<I, O>).Assembly.FullName;
             
             var mapper = Activator.CreateInstance(assemblyName, mapperClassName).Unwrap();
             
             if (mapper != null) {
-                return (IMapper<I, O>)mapper;
+                return (AbstractMapper<I, O>)mapper;
             }
 
             return null;

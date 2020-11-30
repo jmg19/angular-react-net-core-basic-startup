@@ -47,7 +47,7 @@ namespace BaseStartupProject.Application.Services.User
             SessionToken sessionToken = tokenGenerator.Decrypt(tokenString);
             
             if (sessionToken.IsValid(UUID)) { 
-                IMapper<SessionToken, UserAppModel> mapper = mapperFactory.Create<SessionToken, UserAppModel>();
+                AbstractMapper<SessionToken, UserAppModel> mapper = mapperFactory.Create<SessionToken, UserAppModel>();
                 return mapper.Map(sessionToken);            
             };
 

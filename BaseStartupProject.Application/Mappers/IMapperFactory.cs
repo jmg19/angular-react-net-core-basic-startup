@@ -6,6 +6,6 @@ namespace BaseStartupProject.Application.Mappers
 {
     public interface IMapperFactory
     {
-        IMapper<I, O> Create<I, O>();
+        AbstractMapper<I, O> Create<I, O>();
     }
 }
