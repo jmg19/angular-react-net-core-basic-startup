@@ -1,0 +1,32 @@
+<div class="w3-modal" >
+  <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+
+    <div class="w3-center"><br>
+      <span (click)="Close()" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal" >×</span>
+      <img src="assets/img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
+    </div>
+
+    <form #formNewUser="ngForm" class="w3-container" (ngSubmit)="SignUpNewUser()">
+      <div class="w3-section">
+        <label><b>Username</b></label>
+        <input #nomeuser="ngModel" class="w3-input w3-border" type="text" placeholder="Enter Username" name="username" required appCheckUserExist [validateFormControl]="formNewUser.controls['username']" [(ngModel)]="username" />
+        <div class="form-validation-problems  w3-margin-bottom">
+          <div [hidden]="!nomeuser.errors?.required">* Required</div>
+          <div [hidden]="!nomeuser.errors?.userExists">* This user already registed!</div>
+        </div>
+        <label><b>Password</b></label>
+        <input #pw="ngModel" class="w3-input w3-border" type="password" placeholder="Enter Password" name="password" pattern="^[a-z0-9_-]{4,20}$"  required [(ngModel)]="password"  />
+        <div class="form-validation-problems  w3-margin-bottom">
+          <div [hidden]="!pw.errors?.required">* Required</div>
+        </div>
+        <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit" >Sign Up</button>
+      </div>
+    </form>
+
+    <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+      <button (click)="Close()" type="button" class="w3-button w3-red">Cancel</button>
+    </div>
+
+  </div>
+</div>
+

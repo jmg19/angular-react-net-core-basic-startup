@@ -16,7 +16,7 @@ namespace BaseStartupProject.Business.Events
         }
 
         public BusinessChangeType businessChangeType { get; set; }
-        public BusinessObject entity { get; set; }
+        public BusinessEntity entity { get; set; }
         public DateTime date_time = DateTime.Now;
     }
 }

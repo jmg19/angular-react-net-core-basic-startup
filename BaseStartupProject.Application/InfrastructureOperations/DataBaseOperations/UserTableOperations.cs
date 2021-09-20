@@ -13,7 +13,7 @@ namespace BaseStartupProject.Application.InfrastructureOperations.DataBaseOperat
         {
         }
 
-        public override void Add(BusinessObject sender, BusinessChangeEventArgs args)
+        public override void Add(BusinessBase sender, BusinessChangeEventArgs args)
         {
             User user = (User)(args.entity);
             DtoUser dtoUser = new DtoUser(user.id, user.username, user.hash, user.active);
@@ -22,32 +22,32 @@ namespace BaseStartupProject.Application.InfrastructureOperations.DataBaseOperat
             user.id = dtoUser.ID;
         }
 
-        public override void Delete(BusinessObject sender, BusinessChangeEventArgs args)
+        public override void Delete(BusinessBase sender, BusinessChangeEventArgs args)
         {
             User user = (User)(args.entity);            
             IRepository<DtoUser> repository = repositoryFactory.CreateUsersRepository();
             repository.Delete(user.id);
         }
 
-        public override void Get(BusinessObject sender, BusinessConsultEventArgs args)
+        public override void Get(BusinessBase sender, BusinessConsultEventArgs args)
         {                     
             IReadOnlyRepository<DtoUser> repository = repositoryFactory.CreateReadOnlyUsersRepository();
             DtoUser dtoUser =  repository.Get(args.entityId);
-            User user = new User(dtoUser.ID, dtoUser.UserName, dtoUser.Hash, dtoUser.Active, sender.GetBusinessEvents());
+            User user = new User(dtoUser.ID, dtoUser.UserName, dtoUser.Hash, dtoUser.Active, sender.GetBusinessDataMediator());
             args.result = new List<User>() { user };
         }
 
-        public override void GetAll(BusinessObject sender, BusinessConsultEventArgs args)
+        public override void GetAll(BusinessBase sender, BusinessConsultEventArgs args)
         {
             IReadOnlyRepository<DtoUser> repository = repositoryFactory.CreateReadOnlyUsersRepository();
             List<User> list = new List<User>();
             foreach (DtoUser dto in repository.GetAll()) {
-                list.Add(new User(dto.ID, dto.UserName, dto.Hash, dto.Active, sender.GetBusinessEvents()));
+                list.Add(new User(dto.ID, dto.UserName, dto.Hash, dto.Active, sender.GetBusinessDataMediator()));
             }
             args.result = list;
         }
 
-        public override void GetBy(BusinessObject sender, BusinessConsultEventArgs args)
+        public override void GetBy(BusinessBase sender, BusinessConsultEventArgs args)
         {
             List<SearchRule> searchRules = new List<SearchRule>();
             foreach (string condition in args.conditions) 
@@ -60,12 +60,12 @@ namespace BaseStartupProject.Application.InfrastructureOperations.DataBaseOperat
             var getResult = repository.Get(searchRules.ToArray(), new OrderingRule[0]);
             foreach (DtoUser dto in getResult)
             {
-                list.Add(new User(dto.ID, dto.UserName, dto.Hash, dto.Active, sender.GetBusinessEvents()));
+                list.Add(new User(dto.ID, dto.UserName, dto.Hash, dto.Active, sender.GetBusinessDataMediator()));
             }
             args.result = list;
         }
 
-        public override void Update(BusinessObject sender, BusinessChangeEventArgs args)
+        public override void Update(BusinessBase sender, BusinessChangeEventArgs args)
         {
             User user = (User)(args.entity);
             DtoUser dtoUser = new DtoUser(user.id, user.username, user.hash, user.active);

@@ -23,13 +23,13 @@ namespace BaseStartupProject.Application.Commands
 
         protected void handleBusinessNeed(object sender, BusinessChangeEventArgs args)
         {
-            IInfrastructureOperation operation = infrastructureOperationsFactory.CreateDalChangeOperations((BusinessObject)sender, args);
+            IInfrastructureOperation operation = infrastructureOperationsFactory.CreateDalChangeOperations((BusinessBase)sender, args);
             operation.Execute();
         }
 
         protected void handleBusinessNeed(object sender, BusinessConsultEventArgs args)
         {
-            IInfrastructureOperation operation = infrastructureOperationsFactory.CreateDalConsultOperations((BusinessObject)sender, args);
+            IInfrastructureOperation operation = infrastructureOperationsFactory.CreateDalConsultOperations((BusinessBase)sender, args);
             operation.Execute();
         }
         protected void SaveChances()

@@ -41,7 +41,7 @@ namespace BaseStartupProject.Application.InfrastructureOperations
             return dataBaseOperationsFactory.CreateTableOperations(args.GetBusinessEntityType(), repositoryFactory);
         }
 
-        public IInfrastructureOperation CreateDalChangeOperations(BusinessObject sender, BusinessChangeEventArgs args)
+        public IInfrastructureOperation CreateDalChangeOperations(BusinessBase sender, BusinessChangeEventArgs args)
         {
             Task task = null;
             ITableOperations operation = CreateTableOperation(args);
@@ -70,7 +70,7 @@ namespace BaseStartupProject.Application.InfrastructureOperations
             return new InfrastructureOperation(task);
         }
 
-        public IInfrastructureOperation CreateDalConsultOperations(BusinessObject sender, BusinessConsultEventArgs args)
+        public IInfrastructureOperation CreateDalConsultOperations(BusinessBase sender, BusinessConsultEventArgs args)
         {
             Task task = null;
             ITableOperations operation = CreateTableOperation(args);

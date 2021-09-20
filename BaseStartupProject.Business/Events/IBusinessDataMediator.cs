@@ -8,6 +8,6 @@ namespace BaseStartupProject.Business.Events
         IEnumerable<T> MediateBusinessDataConsult<T>(object sender);
         IEnumerable<T> MediateBusinessDataConsult<T>(object sender, int entityId);
         IEnumerable<T> MediateBusinessDataConsult<T>(object sender, string[] conditions);
-        void MediateBusinessDataChange<T>(object sender, BusinessChangeType type, BusinessObject entity);        
+        void MediateBusinessDataChange<T>(object sender, BusinessChangeType type, BusinessEntity entity);        
     }
 }

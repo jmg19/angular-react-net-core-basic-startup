@@ -5,15 +5,18 @@ using System.Text;
 
 namespace BaseStartupProject.Business
 {
-    public abstract class BusinessBase<T> : BusinessObject
-    {               
-        protected bool _isIdSetted;
+    public abstract class BusinessBase
+    {
+        protected IBusinessDataMediator _mediator;
 
-        protected BusinessBase(IBusinessDataMediator handlers) : base(handlers)
+        public BusinessBase(IBusinessDataMediator mediator)
         {
-                    
+            this._mediator = mediator;
         }
-        protected abstract void RaiseBusinessChange(BusinessChangeType type);
-        public abstract T Cast();
+
+        public IBusinessDataMediator GetBusinessDataMediator()
+        {
+            return _mediator;
+        }
     }
 }

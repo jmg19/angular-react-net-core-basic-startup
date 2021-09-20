@@ -1,0 +1,35 @@
+<div class="w3-modal" >
+  <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+
+    <div class="w3-center"><br>
+      <span (click)="Close()" class="w3-button w3-xlarge w3-transparent w3-display-topright" title="Close Modal" >×</span>
+      <img src="assets/img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
+    </div>
+
+    <form #formLogin="ngForm" class="w3-container" (ngSubmit)="DoLogin(formLogin.valid)">
+      <div class="w3-section">
+        <label><b>Username</b></label>
+        <input #nomeuser="ngModel" class="w3-input w3-border" type="text" placeholder="Enter Username" name="username" required [(ngModel)]="username" />
+        <div class="form-validation-problems  w3-margin-bottom">
+          <div *ngIf="nomeuser.errors?.required">* Required</div>
+        </div>
+        <label><b>Password</b></label>
+        <input #pw="ngModel" class="w3-input w3-border" type="password" placeholder="Enter Password" name="password" required [(ngModel)]="password"  />
+        <div class="form-validation-problems  w3-margin-bottom">
+          <div *ngIf="pw.errors?.required">* Required</div>
+        </div>
+        <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit" >Login</button>
+        <input class="w3-check w3-margin-top" type="checkbox" checked="checked" name="remember" [(ngModel)]="toRemember" > Remember me
+        <div class="form-validation-problems  w3-margin-top">
+          <div *ngIf="wrong_credentials">* Wrong Credentials</div>
+        </div>
+      </div>
+    </form>
+
+    <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+      <button (click)="Close()" type="button" class="w3-button w3-red">Cancel</button>
+      <span class="w3-right w3-padding w3-hide-small"><a (click)="GoResist()" class="w3-hyperlink">New Accout?</a></span>
+    </div>
+
+  </div>
+</div>

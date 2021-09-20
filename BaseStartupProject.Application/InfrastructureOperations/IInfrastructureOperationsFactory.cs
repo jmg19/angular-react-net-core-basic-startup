@@ -8,8 +8,8 @@ namespace BaseStartupProject.Application.InfrastructureOperations
 {
     public interface IInfrastructureOperationsFactory
     {
-        IInfrastructureOperation CreateDalConsultOperations(BusinessObject sender, BusinessConsultEventArgs args);
-        IInfrastructureOperation CreateDalChangeOperations(BusinessObject sender, BusinessChangeEventArgs args);
+        IInfrastructureOperation CreateDalConsultOperations(BusinessBase sender, BusinessConsultEventArgs args);
+        IInfrastructureOperation CreateDalChangeOperations(BusinessBase sender, BusinessChangeEventArgs args);
         void SaveChanges();
     }
 }

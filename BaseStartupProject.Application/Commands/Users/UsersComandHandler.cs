@@ -21,7 +21,7 @@ namespace BaseStartupProject.Application.Commands.Users
 
         public void Handle(SignUpUser command)
         {
-            UserCollection userCollection = new UserCollection(businessDataMediator);            
+            UserAggregate userCollection = new UserAggregate(businessDataMediator);            
             
             User newUser = userCollection.CreateNewUser(command.UserName);
 
@@ -36,7 +36,7 @@ namespace BaseStartupProject.Application.Commands.Users
 
         public void Handle(UserLogin command)
         {
-            UserCollection userCollection = new UserCollection(businessDataMediator);
+            UserAggregate userCollection = new UserAggregate(businessDataMediator);
             User user = userCollection.Get(command.UserName);
             if (user != null && user.DoLogin(command.Password)){
                 command.CommandResult = user.id;
@@ -45,7 +45,7 @@ namespace BaseStartupProject.Application.Commands.Users
 
         public void Handle(InactivateUser command)
         {
-            UserCollection userCollection = new UserCollection(businessDataMediator);
+            UserAggregate userCollection = new UserAggregate(businessDataMediator);
             User user = userCollection.Get(command.userId);
             if (user != null)
             {
@@ -56,7 +56,7 @@ namespace BaseStartupProject.Application.Commands.Users
 
         public void Handle(ActivateUser command)
         {
-            UserCollection userCollection = new UserCollection(businessDataMediator);
+            UserAggregate userCollection = new UserAggregate(businessDataMediator);
             User user = userCollection.Get(command.userId);
             if (user != null)
             {
