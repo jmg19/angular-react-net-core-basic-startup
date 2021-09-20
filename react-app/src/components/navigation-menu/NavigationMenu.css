@@ -1,0 +1,29 @@
+#openNav{
+    display: none;
+}
+
+#mySidebar{
+    display: none;
+    width: 125px;
+    left: -125px;
+    top: 0;
+    left: 0;
+}
+
+#mySidebar.ShowSideBar{
+    display: inline-block;
+}
+
+#menu-standard {
+    text-align: left;
+}
+
+@media only screen and (max-width: 600px){
+    #menu-standard > .w3-button{
+        display: none;
+    }
+
+    #menu-standard > #openNav{
+        display: inline-block;
+    }
+}

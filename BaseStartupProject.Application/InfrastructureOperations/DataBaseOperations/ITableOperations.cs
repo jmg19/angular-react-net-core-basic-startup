@@ -6,11 +6,11 @@ namespace BaseStartupProject.Application.InfrastructureOperations.DataBaseOperat
 {
     public interface ITableOperations
     {
-        void Get(BusinessObject sender, BusinessConsultEventArgs args);
-        void GetAll(BusinessObject sender, BusinessConsultEventArgs args);
-        void GetBy(BusinessObject sender, BusinessConsultEventArgs args);
-        void Add(BusinessObject sender, BusinessChangeEventArgs args);
-        void Update(BusinessObject sender, BusinessChangeEventArgs args);
-        void Delete(BusinessObject sender, BusinessChangeEventArgs args);
+        void Get(BusinessBase sender, BusinessConsultEventArgs args);
+        void GetAll(BusinessBase sender, BusinessConsultEventArgs args);
+        void GetBy(BusinessBase sender, BusinessConsultEventArgs args);
+        void Add(BusinessBase sender, BusinessChangeEventArgs args);
+        void Update(BusinessBase sender, BusinessChangeEventArgs args);
+        void Delete(BusinessBase sender, BusinessChangeEventArgs args);
     }
 }

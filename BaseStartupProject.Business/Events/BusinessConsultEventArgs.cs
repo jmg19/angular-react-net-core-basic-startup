@@ -18,6 +18,6 @@ namespace BaseStartupProject.Business.Events
         public BusinessConsultType businessConsultType { get; set; }
         public int entityId { get; set; }
         public string[] conditions { get; set; }        
-        public IEnumerable<BusinessObject> result { get; set; }
+        public IEnumerable<BusinessEntity> result { get; set; }
     }
 }

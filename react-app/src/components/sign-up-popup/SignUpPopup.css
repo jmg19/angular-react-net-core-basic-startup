@@ -1,0 +1,35 @@
+.w3-modal{
+    display: inline-block;
+}
+  
+div.form-validation-problems{
+    color: #FF0000;
+    min-height: 1.5em;
+    font-size: 1em;
+    font-style: italic;
+    padding-top: 2px;
+}
+
+div.password-security-check {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    font-weight: bold;
+    text-align: center;
+}
+
+div.password-security-check.strong {
+    background-color: green;
+    color: white;
+}
+
+div.password-security-check.medium {
+    background-color: blue;
+    color: white;
+}
+
+div.password-security-check.weak {
+    background-color: red;
+    color: white;
+}
+  

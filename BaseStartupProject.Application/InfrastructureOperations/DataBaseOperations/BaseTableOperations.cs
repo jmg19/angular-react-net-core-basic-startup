@@ -15,12 +15,12 @@ namespace BaseStartupProject.Application.InfrastructureOperations.DataBaseOperat
         {
             this.repositoryFactory = repositoryFactory;
         }
-        public abstract void Get(BusinessObject sender, BusinessConsultEventArgs args);
-        public abstract void GetAll(BusinessObject sender, BusinessConsultEventArgs args);
-        public abstract void GetBy(BusinessObject sender, BusinessConsultEventArgs args);
-        public abstract void Add(BusinessObject sender, BusinessChangeEventArgs args);
-        public abstract void Update(BusinessObject sender, BusinessChangeEventArgs args);
-        public abstract void Delete(BusinessObject sender, BusinessChangeEventArgs args);
+        public abstract void Get(BusinessBase sender, BusinessConsultEventArgs args);
+        public abstract void GetAll(BusinessBase sender, BusinessConsultEventArgs args);
+        public abstract void GetBy(BusinessBase sender, BusinessConsultEventArgs args);
+        public abstract void Add(BusinessBase sender, BusinessChangeEventArgs args);
+        public abstract void Update(BusinessBase sender, BusinessChangeEventArgs args);
+        public abstract void Delete(BusinessBase sender, BusinessChangeEventArgs args);
         
     }
 }

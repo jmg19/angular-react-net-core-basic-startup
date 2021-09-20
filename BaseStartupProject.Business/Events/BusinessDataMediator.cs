@@ -40,7 +40,7 @@ namespace BaseStartupProject.Business.Events
             return (IEnumerable<T>)args.result;
         }
 
-        public void MediateBusinessDataChange<T>(object sender, BusinessChangeType type, BusinessObject entity)
+        public void MediateBusinessDataChange<T>(object sender, BusinessChangeType type, BusinessEntity entity)
         {
             BusinessChangeEventArgs args = new BusinessChangeEventArgs(typeof(T)) { businessChangeType = type, entity = entity };
             BusinessChangeNeed(sender, args);

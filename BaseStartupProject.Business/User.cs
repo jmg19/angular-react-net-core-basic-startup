@@ -6,7 +6,7 @@ using System.Text;
 
 namespace BaseStartupProject.Business
 {
-    public class User : BusinessBase<User>
+    public class User : BusinessEntity
     {
         private ILoginPasswordHasher hasher;
 
@@ -63,12 +63,7 @@ namespace BaseStartupProject.Business
             _active = active;
             this.hasher = hasher;
             _isIdSetted = true;
-        }
-        
-        public override User Cast()
-        {
-            return this;
-        }
+        }        
 
         protected override void RaiseBusinessChange(BusinessChangeType type)
         {

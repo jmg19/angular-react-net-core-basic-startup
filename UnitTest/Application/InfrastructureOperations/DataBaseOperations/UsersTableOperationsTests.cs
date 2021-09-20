@@ -29,7 +29,7 @@ namespace BaseStartupProject.Tests.Application.InfrastructureOperations.DataBase
             repositoryFactoryMock.Setup(x => x.CreateReadOnlyUsersRepository()).Returns(repositoryMock.Object);
 
             DataBaseOperationsFactory dataBaseOperationsFactory = new DataBaseOperationsFactory();
-            Mock<BusinessObject> businessObjectMock = new Mock<BusinessObject>(null);
+            Mock<BusinessEntity> businessObjectMock = new Mock<BusinessEntity>(null);
 
             BusinessConsultEventArgs args = new BusinessConsultEventArgs(typeof(User)) { businessConsultType = BusinessConsultType.Get, entityId = 1 };
             InfrastructureOperationsFactory factory = new InfrastructureOperationsFactory(repositoryFactoryMock.Object, dataBaseOperationsFactory);
@@ -67,7 +67,7 @@ namespace BaseStartupProject.Tests.Application.InfrastructureOperations.DataBase
             repositoryFactoryMock.Setup(x => x.CreateReadOnlyUsersRepository()).Returns(repositoryMock.Object);
 
             DataBaseOperationsFactory dataBaseOperationsFactory = new DataBaseOperationsFactory();
-            Mock<BusinessObject> businessObjectMock = new Mock<BusinessObject>(null);
+            Mock<BusinessEntity> businessObjectMock = new Mock<BusinessEntity>(null);
 
             BusinessConsultEventArgs args = new BusinessConsultEventArgs(typeof(User)) { businessConsultType = BusinessConsultType.GetAll };
             InfrastructureOperationsFactory factory = new InfrastructureOperationsFactory(repositoryFactoryMock.Object, dataBaseOperationsFactory);
@@ -105,7 +105,7 @@ namespace BaseStartupProject.Tests.Application.InfrastructureOperations.DataBase
             repositoryFactoryMock.Setup(x => x.CreateReadOnlyUsersRepository()).Returns(repositoryMock.Object);
 
             DataBaseOperationsFactory dataBaseOperationsFactory = new DataBaseOperationsFactory();
-            Mock<BusinessObject> businessObjectMock = new Mock<BusinessObject>(null);
+            Mock<BusinessEntity> businessObjectMock = new Mock<BusinessEntity>(null);
 
             BusinessConsultEventArgs args = new BusinessConsultEventArgs(typeof(User)) { businessConsultType = BusinessConsultType.GetBy, conditions = new string[] { } };
             InfrastructureOperationsFactory factory = new InfrastructureOperationsFactory(repositoryFactoryMock.Object, dataBaseOperationsFactory);
@@ -139,7 +139,7 @@ namespace BaseStartupProject.Tests.Application.InfrastructureOperations.DataBase
             repositoryMock.Setup(x => x.Add(It.IsAny<DtoUser>())).Returns(new DtoUser());
 
             DataBaseOperationsFactory dataBaseOperationsFactory = new DataBaseOperationsFactory();
-            Mock<BusinessObject> businessObjectMock = new Mock<BusinessObject>(null);
+            Mock<BusinessEntity> businessObjectMock = new Mock<BusinessEntity>(null);
 
             BusinessChangeEventArgs args = new BusinessChangeEventArgs(typeof(User)) { businessChangeType = BusinessChangeType.Add, entity = new User("", null) };
             InfrastructureOperationsFactory factory = new InfrastructureOperationsFactory(repositoryFactoryMock.Object, dataBaseOperationsFactory);
@@ -170,7 +170,7 @@ namespace BaseStartupProject.Tests.Application.InfrastructureOperations.DataBase
             repositoryFactoryMock.Setup(x => x.CreateUsersRepository()).Returns(repositoryMock.Object);
 
             DataBaseOperationsFactory dataBaseOperationsFactory = new DataBaseOperationsFactory();
-            Mock<BusinessObject> businessObjectMock = new Mock<BusinessObject>(null);
+            Mock<BusinessEntity> businessObjectMock = new Mock<BusinessEntity>(null);
 
             BusinessChangeEventArgs args = new BusinessChangeEventArgs(typeof(User)) { businessChangeType = BusinessChangeType.Update, entity = new User("", null) };
             InfrastructureOperationsFactory factory = new InfrastructureOperationsFactory(repositoryFactoryMock.Object, dataBaseOperationsFactory);
@@ -201,7 +201,7 @@ namespace BaseStartupProject.Tests.Application.InfrastructureOperations.DataBase
             repositoryFactoryMock.Setup(x => x.CreateUsersRepository()).Returns(repositoryMock.Object);
 
             DataBaseOperationsFactory dataBaseOperationsFactory = new DataBaseOperationsFactory();
-            Mock<BusinessObject> businessObjectMock = new Mock<BusinessObject>(null);
+            Mock<BusinessEntity> businessObjectMock = new Mock<BusinessEntity>(null);
 
             BusinessChangeEventArgs args = new BusinessChangeEventArgs(typeof(User)) { businessChangeType = BusinessChangeType.Delete, entity = new User("", null) };
             InfrastructureOperationsFactory factory = new InfrastructureOperationsFactory(repositoryFactoryMock.Object, dataBaseOperationsFactory);
