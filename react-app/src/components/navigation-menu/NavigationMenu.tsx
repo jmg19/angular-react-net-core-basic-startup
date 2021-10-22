@@ -17,9 +17,9 @@ interface NavigationMenuPropsData{}
 
 export class NavigationMenu extends React.Component<NavigationMenuPropsData, NavigationMenuStateData>{
     private servicesFactory: IAppServicesFactory = _IAppServicesFactory();
-    private popupsService: IPopupsService = this.servicesFactory._IPopupsService();
-    private global: IGlobalService = this.servicesFactory._IGlobalService();
-    private loginService: ILoginService = this.servicesFactory._ILoginService();
+    private popupsService: IPopupsService = this.servicesFactory.IPopupsService;
+    private global: IGlobalService = this.servicesFactory.IGlobalService;
+    private loginService: ILoginService = this.servicesFactory.ILoginService;
     private logedUserSubscription!: Subscription;
 
     constructor(props: NavigationMenuPropsData) {

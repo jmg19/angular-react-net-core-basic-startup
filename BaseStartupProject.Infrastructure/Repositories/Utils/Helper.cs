@@ -9,8 +9,6 @@ namespace BaseStartupProject.Infrastructure.Repositories.Utils
 {
     public static class Helper
     {
-
-
         public static IQueryable<T> OrderByDynamic<T>(this IQueryable<T> query, OrderingRule[] ordering_rules)
         {
             bool first = true;            
@@ -66,7 +64,6 @@ namespace BaseStartupProject.Infrastructure.Repositories.Utils
 
                 query = query.Provider.CreateQuery<T>(resultExpression);
             }
-
 
             return query;
         }

@@ -22,7 +22,7 @@ interface UsersListPropsData {}
 
 export class UsersList extends React.Component<UsersListPropsData, UsersListStateData>{
     private servicesFactory: IAppServicesFactory = _IAppServicesFactory();     
-    private accountsService: IAccountsService = this.servicesFactory._IAccountsService();
+    private accountsService: IAccountsService = this.servicesFactory.IAccountsService;
     
     constructor(props: UsersListPropsData) {
         super(props);

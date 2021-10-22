@@ -24,8 +24,8 @@ interface AppPropsData{
 
 export class App extends React.Component<AppPropsData, AppStateData> {
   private servicesFactory: IAppServicesFactory = _IAppServicesFactory();
-  private popupsService: IPopupsService = this.servicesFactory._IPopupsService();
-  private globalService: IGlobalService = this.servicesFactory._IGlobalService();
+  private popupsService: IPopupsService = this.servicesFactory.IPopupsService;
+  private globalService: IGlobalService = this.servicesFactory.IGlobalService;
   private showLoadingSubscription!: Subscription;
   private isPopupLogInActiveSubscription!: Subscription;
   private isPopupSignUpActiveSubscription!: Subscription;
@@ -43,7 +43,7 @@ export class App extends React.Component<AppPropsData, AppStateData> {
   }
 
   componentDidMount(){
-    const tokenFactoryService = this.servicesFactory._ITokenFactoryService();
+    const tokenFactoryService = this.servicesFactory.ITokenFactoryService;
     tokenFactoryService.CheckToken();   
 
     this.showLoadingSubscription = this.popupsService.subscribeShowLoading(() => {      

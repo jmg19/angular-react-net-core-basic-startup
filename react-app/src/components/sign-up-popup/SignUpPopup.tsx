@@ -18,9 +18,9 @@ interface SignUpPopupPropsData {}
 
 export class SignUpPopup extends React.Component<SignUpPopupPropsData, SignUpPopupStateData>{
     private servicesFactory: IAppServicesFactory = _IAppServicesFactory();
-    private popupsService: IPopupsService = this.servicesFactory._IPopupsService(); 
-    private accountsService: IAccountsService = this.servicesFactory._IAccountsService();
-    private loginService: ILoginService = this.servicesFactory._ILoginService();
+    private popupsService: IPopupsService = this.servicesFactory.IPopupsService; 
+    private accountsService: IAccountsService = this.servicesFactory.IAccountsService;
+    private loginService: ILoginService = this.servicesFactory.ILoginService;
     private formValidation: FormValidation;        
 
     constructor(props: SignUpPopupPropsData){

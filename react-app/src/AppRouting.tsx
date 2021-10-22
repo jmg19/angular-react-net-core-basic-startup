@@ -14,7 +14,7 @@ interface AppRoutingPropsData{}
 
 export class AppRouting extends React.Component<AppRoutingPropsData, AppRoutingStateData> {
     private servicesFactory: IAppServicesFactory = _IAppServicesFactory();
-    private globalService: IGlobalService = this.servicesFactory._IGlobalService();
+    private globalService: IGlobalService = this.servicesFactory.IGlobalService;
     private logedUserSubscription!: Subscription;
     
     private routes = [

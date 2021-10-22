@@ -7,26 +7,26 @@ import { IPopupsService, PopupsService } from "./PopupsService";
 import { ITokenFactoryService, TokenFactoryService } from "./TokenFactoryService";
 
 export interface IAppServicesFactory {
-    _ILoginService(): ILoginService;
-    _IGlobalService(): IGlobalService;
-    _IPopupsService(): IPopupsService;
-    _IMessageService(): IMessageService;
-    _IAccountsService(): IAccountsService;
-    _ISessionService(): ISessionService;
-    _ITokenFactoryService(): ITokenFactoryService;    
+    ILoginService: ILoginService;
+    IGlobalService: IGlobalService;
+    IPopupsService: IPopupsService;
+    IMessageService: IMessageService;
+    IAccountsService: IAccountsService;
+    ISessionService: ISessionService;
+    ITokenFactoryService: ITokenFactoryService;    
 }
 
 class ServicesFactory implements IAppServicesFactory{
         
-    _IGlobalService(): IGlobalService {
+    get IGlobalService(): IGlobalService {
         if(!this.services["IGlobalService"]){            
-            this.services["IGlobalService"] = new GlobalService(this._IPopupsService());
+            this.services["IGlobalService"] = new GlobalService(this.IPopupsService);
         }   
 
         return this.services["IGlobalService"];
     }
 
-    _IPopupsService(): IPopupsService {
+    get IPopupsService(): IPopupsService {
         if(!this.services["IPopupsService"]){            
             this.services["IPopupsService"] = new PopupsService();
         }   
@@ -34,7 +34,7 @@ class ServicesFactory implements IAppServicesFactory{
         return this.services["IPopupsService"];
     }
 
-    _IMessageService(): IMessageService {
+    get IMessageService(): IMessageService {
         if(!this.services["IMessageService"]){            
             this.services["IMessageService"] = new MessageService();
         }   
@@ -42,33 +42,33 @@ class ServicesFactory implements IAppServicesFactory{
         return this.services["IMessageService"];
     }
 
-    _IAccountsService(): IAccountsService {
+    get IAccountsService(): IAccountsService {
         if(!this.services["IAccountsService"]){                 
-            this.services["IAccountsService"] = new AccountsService(this._IGlobalService(), this._IMessageService(), this._IPopupsService());
+            this.services["IAccountsService"] = new AccountsService(this.IGlobalService, this.IMessageService, this.IPopupsService);
         }   
 
         return this.services["IAccountsService"];
     }
 
-    _ISessionService(): ISessionService {
+    get ISessionService(): ISessionService {
         if(!this.services["ISessionService"]) {            
-            this.services["ISessionService"] = new SessionService(this._IGlobalService(), this._IMessageService(), this._IPopupsService());
+            this.services["ISessionService"] = new SessionService(this.IGlobalService, this.IMessageService, this.IPopupsService);
         }   
 
         return this.services["ISessionService"];
     }
 
-    _ITokenFactoryService(): ITokenFactoryService {
+    get ITokenFactoryService(): ITokenFactoryService {
         if(!this.services["ITokenFactoryService"]) {            
-            this.services["ITokenFactoryService"] = new TokenFactoryService(this._ISessionService(), this._IGlobalService());
+            this.services["ITokenFactoryService"] = new TokenFactoryService(this.ISessionService, this.IGlobalService);
         }   
 
         return this.services["ITokenFactoryService"];
     }
 
-    _ILoginService(): ILoginService {
+    get ILoginService(): ILoginService {
         if(!this.services["ILoginService"]) {            
-            this.services["ILoginService"] = new LoginService(this._IGlobalService(), this._IAccountsService(), this._ISessionService(), this._ITokenFactoryService());
+            this.services["ILoginService"] = new LoginService(this.IGlobalService, this.IAccountsService, this.ISessionService, this.ITokenFactoryService);
         }   
 
         return this.services["ILoginService"];

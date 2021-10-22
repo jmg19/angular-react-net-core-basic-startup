@@ -30,14 +30,6 @@ namespace BaseStartupProject.Application.InfrastructureOperations
 
         private ITableOperations CreateTableOperation(BusinessEventArgs args)
         {
-            //ITableOperations operation = null;
-            //if (args.GetBusinessEntityType() == typeof(User))
-            //{
-            //    operation = dataBaseOperationsFactory.CreateUsersTableOperations(repositoryFactory);
-            //}
-
-            //return operation;
-
             return dataBaseOperationsFactory.CreateTableOperations(args.GetBusinessEntityType(), repositoryFactory);
         }
 

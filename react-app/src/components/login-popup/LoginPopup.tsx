@@ -18,8 +18,8 @@ interface LoginPopupPropsData {}
 
 export class LoginPopup extends React.Component<LoginPopupPropsData, LoginPopupStateData>{
     private servicesFactory: IAppServicesFactory = _IAppServicesFactory();
-    private popupsService: IPopupsService = this.servicesFactory._IPopupsService(); 
-    private loginService: ILoginService = this.servicesFactory._ILoginService();
+    private popupsService: IPopupsService = this.servicesFactory.IPopupsService; 
+    private loginService: ILoginService = this.servicesFactory.ILoginService;
     private formValidation: FormValidation;    
         
     constructor(props: LoginPopupPropsData){
